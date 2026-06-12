@@ -44,8 +44,10 @@ function crearConfeti() {
 // 3. Dibujar y Mover Confeti
 //
 function animarConfeti() {
-  ctxConfeti.fillStyle = "rgba(255, 182, 193, 1)"; // Fondo Rosa Pastel
-  ctxConfeti.fillRect(0, 0, ancho, alto);
+  // ⬇️ ¡AQUÍ ESTÁ EL CAMBIO! ⬇️
+  // En vez de pintar un fondo rosa sólido, usamos clearRect para limpiar el lienzo de forma transparente.
+  // Esto evita que se tapen la foto, el regalo y la torta.
+  ctxConfeti.clearRect(0, 0, ancho, alto);
 
   for (let i = 0; i < confetis.length; i++) {
     let confetiActual = confetis[i];
@@ -77,7 +79,7 @@ function animarConfeti() {
 
 crearConfeti();
 
-// Esperar 1 segundo antes de iniciar el confeti
+// Esperar 1.5 segundos antes de iniciar el confeti
 setTimeout(() => {
   animarConfeti();
 }, 1500);
